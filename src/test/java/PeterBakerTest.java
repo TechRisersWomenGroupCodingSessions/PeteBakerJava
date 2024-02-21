@@ -24,6 +24,29 @@ public class PeterBakerTest {
         Baker baker = new Baker();
         int numberOfCakes = baker.cakes(cakeRecipe, peterIngredient);
 
-        assertEquals(numberOfCakes, 3);
+        assertEquals(3, numberOfCakes);
     }
+
+    @Test void testingCakesZero() {
+        Map<String,Integer> cakeRecipe = new HashMap<>();
+        Map<String,Integer> peterIngredient = new HashMap<>();
+
+        cakeRecipe.put("apples", 3);
+        cakeRecipe.put("flour",300);
+        cakeRecipe.put("sugar",150);
+        cakeRecipe.put("milk",100);
+        cakeRecipe.put("oil",100);
+
+        peterIngredient.put("flour",2000);
+        peterIngredient.put("sugar",500);
+        peterIngredient.put("milk",2000);
+
+        Baker baker = new Baker();
+        int numberOfCakes = baker.cakes(cakeRecipe, peterIngredient);
+
+        assertEquals(0, numberOfCakes);
+    }
+
+
+//    cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000});
 }

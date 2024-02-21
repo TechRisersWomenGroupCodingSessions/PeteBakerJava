@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Baker {
@@ -9,7 +8,10 @@ public class Baker {
         int numberOfCakes = Integer.MAX_VALUE;
 
         for (Map.Entry<String, Integer> entry : cakeRecipe.entrySet()) {
-            if(peterIngredient.containsKey(entry.getKey()) && peterIngredient.get(entry.getKey())/entry.getValue() < numberOfCakes) {
+            if(!peterIngredient.containsKey(entry.getKey())) {
+                return 0;
+            }
+            else if(peterIngredient.containsKey(entry.getKey()) && peterIngredient.get(entry.getKey())/entry.getValue() < numberOfCakes) {
                 numberOfCakes = peterIngredient.get(entry.getKey())/entry.getValue();
             }
         }

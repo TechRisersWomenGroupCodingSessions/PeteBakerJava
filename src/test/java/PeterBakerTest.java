@@ -62,4 +62,28 @@ public class PeterBakerTest {
 
         Assert.assertEquals(0, numberOfCakes);
     }
+
+    @Test
+    public void shouldBakeNoCakesIfOneIngredientIsMissing() {
+        Baker baker = new Baker();
+        RecipeIngredient recipeSugar = new RecipeIngredient("Sugar", 1);
+        RecipeIngredient recipeFlour = new RecipeIngredient("Flour", 2);
+
+        Ingredient sugar = new Ingredient("Sugar", 1);
+
+
+        List<Ingredient> cupboard = new ArrayList<Ingredient>();
+        cupboard.add(sugar);
+
+
+        List<RecipeIngredient> recipe = new ArrayList<RecipeIngredient>();
+        recipe.add(recipeSugar);
+        recipe.add(recipeFlour);
+
+        int numberOfCakes = baker.getNumberOfCakes(recipe, cupboard);
+
+        Assert.assertEquals(0, numberOfCakes);
+    }
+
+
 }

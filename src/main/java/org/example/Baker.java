@@ -15,6 +15,9 @@ public class Baker {
                 if(recipeIngredient.ingredientType.equals(cupboardIngredient.ingredientType)) {
                     numberOfCakes = cupboardIngredient.countOfIngredient/ recipeIngredient.countOfIngredient;
                 }
+                else{
+                    return 0;
+                }
             }
         }
 

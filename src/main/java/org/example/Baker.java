@@ -12,15 +12,19 @@ public class Baker {
 
         for (RecipeIngredient recipeIngredient : recipe) {
             for (Ingredient cupboardIngredient : cupboard) {
-
                 if(recipeIngredient.ingredientType.equals(cupboardIngredient.ingredientType)) {
                     int numberOfCakes_2 = cupboardIngredient.countOfIngredient/ recipeIngredient.countOfIngredient;
                     if (numberOfCakes<numberOfCakes_2){
                         numberOfCakes = numberOfCakes_2;
                     }
+                    else {
+                        numberOfCakes = 0;
+                    }
                     break;
                 }
-
+                else {
+                    numberOfCakes = 0;
+                }
             }
         }
 

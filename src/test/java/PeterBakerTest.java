@@ -29,5 +29,65 @@ public class PeterBakerTest {
 
     }
 
+    @Test
+    public void shouldBakeOneCakeWhenExactAmountOfSugar() {
+        Baker baker = new Baker();
+        RecipeIngredient recipeSugar = new RecipeIngredient("Sugar", 1);
+        Ingredient sugar = new Ingredient("Sugar", 200);
+        List<Ingredient> cupboard = new ArrayList<Ingredient>();
+        cupboard.add(sugar);
+        List<RecipeIngredient> recipe = new ArrayList<RecipeIngredient>();
+        recipe.add(recipeSugar);
+
+        int numberOfCakes = baker.getNumberOfCakes(recipe, cupboard);
+
+        assertEquals(200, numberOfCakes);
+
+    }
+
+    @Test
+    public void shouldBakeNoCakesWhenNotEnoughFlour() {
+        Baker baker = new Baker();
+        RecipeIngredient recipeSugar = new RecipeIngredient("Sugar", 1);
+        RecipeIngredient recipeFlour = new RecipeIngredient("Flour", 2);
+
+        Ingredient sugar = new Ingredient("Sugar", 1);
+        Ingredient flour = new Ingredient("Flour", 1);
+
+        List<Ingredient> cupboard = new ArrayList<Ingredient>();
+        cupboard.add(sugar);
+        cupboard.add(flour);
+
+        List<RecipeIngredient> recipe = new ArrayList<RecipeIngredient>();
+        recipe.add(recipeSugar);
+        recipe.add(recipeFlour);
+
+        int numberOfCakes = baker.getNumberOfCakes(recipe, cupboard);
+
+        assertEquals(0, numberOfCakes);
+    }
+
+    @Test
+    public void shouldBakeNoCakesIfOneIngredientIsMissing() {
+        Baker baker = new Baker();
+        RecipeIngredient recipeSugar = new RecipeIngredient("Sugar", 1);
+        RecipeIngredient recipeFlour = new RecipeIngredient("Flour", 2);
+
+        Ingredient sugar = new Ingredient("Sugar", 1);
+
+
+        List<Ingredient> cupboard = new ArrayList<Ingredient>();
+        cupboard.add(sugar);
+
+
+        List<RecipeIngredient> recipe = new ArrayList<RecipeIngredient>();
+        recipe.add(recipeSugar);
+        recipe.add(recipeFlour);
+
+        int numberOfCakes = baker.getNumberOfCakes(recipe, cupboard);
+
+        assertEquals(0, numberOfCakes);
+    }
+
 //    cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000});
 }

@@ -9,6 +9,8 @@ public class Baker {
     public int getNumberOfCakes(List<RecipeIngredient> recipe, List<Ingredient> cupboard) {
         int numberOfCakes = 0;
 
+        // we're going about this incorrectly because we cannot get past 0 with the current logic
+
 
         for (RecipeIngredient recipeIngredient : recipe) {
             for (Ingredient cupboardIngredient : cupboard) {
@@ -23,7 +25,7 @@ public class Baker {
                     break;
                 }
                 else {
-                    numberOfCakes = 0;
+                    return 0;
                 }
             }
         }

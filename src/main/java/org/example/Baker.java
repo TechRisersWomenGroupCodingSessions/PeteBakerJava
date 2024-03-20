@@ -10,18 +10,26 @@ public class Baker {
     public int getNumberOfCakes(List<RecipeIngredient> recipe, List<Ingredient> cupboard) {
 
         int[] temp = new int[recipe.size()];
+        int counter = 0;
 
         for (RecipeIngredient recipeIngredient : recipe) {
             for (Ingredient ingredient : cupboard) {
                 if (recipeIngredient.ingredientType.equals(ingredient.ingredientType)) {
                     numberOfCakes = ingredient.countOfIngredient/recipeIngredient.countOfIngredient;
-                    
+                    temp[counter] = numberOfCakes;
                 }
-             //   else if(!recipeIngredient.ingredientType.equals(ingredient.ingredientType)) {
-
                 }
+            counter++;
             }
-        
-        return numberOfCakes;
+
+       int minNumberOfCakes = temp[0];
+        for (int value: temp) {
+            if(value < minNumberOfCakes) {
+                minNumberOfCakes = value;
+            }
+        }
+
+
+        return minNumberOfCakes;
     }
 }

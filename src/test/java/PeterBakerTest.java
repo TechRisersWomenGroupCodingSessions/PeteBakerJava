@@ -28,7 +28,7 @@ public class PeterBakerTest {
         assertEquals(1, numberOfCakes);
 
     }
-/*
+
     @Test
     public void shouldBakeOneCakeWhenExactAmountOfSugar() {
         Baker baker = new Baker();
@@ -44,7 +44,7 @@ public class PeterBakerTest {
         assertEquals(200, numberOfCakes);
 
     }
-*/
+
     @Test
     public void shouldBakeNoCakesWhenNotEnoughFlour() {
         Baker baker = new Baker();
@@ -88,7 +88,7 @@ public class PeterBakerTest {
 
         assertEquals(0, numberOfCakes);
     }
-/*
+
     @Test
     public void shouldBakeTwoCakes(){
         Baker baker = new Baker();
@@ -122,7 +122,7 @@ public class PeterBakerTest {
 
 
 
- */
+
 
 //    cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200});
 

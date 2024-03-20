@@ -9,16 +9,19 @@ public class Baker {
 
     public int getNumberOfCakes(List<RecipeIngredient> recipe, List<Ingredient> cupboard) {
 
+        int[] temp = new int[recipe.size()];
+
         for (RecipeIngredient recipeIngredient : recipe) {
             for (Ingredient ingredient : cupboard) {
                 if (recipeIngredient.ingredientType.equals(ingredient.ingredientType)) {
                     numberOfCakes = ingredient.countOfIngredient/recipeIngredient.countOfIngredient;
+                    
                 }
              //   else if(!recipeIngredient.ingredientType.equals(ingredient.ingredientType)) {
 
                 }
             }
-        }
+        
         return numberOfCakes;
     }
 }

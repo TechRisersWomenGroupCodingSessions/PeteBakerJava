@@ -120,9 +120,42 @@ public class PeterBakerTest {
 
     }
 
+    @Test
+    public void returnZero(){
+        Baker baker = new Baker();
+
+        RecipeIngredient recipeFlour = new RecipeIngredient("Flour", 2000);
+        RecipeIngredient recipeSugar = new RecipeIngredient("Sugar", 500);
+        RecipeIngredient recipeMilk = new RecipeIngredient("Milk", 2000);
+    
+        List<RecipeIngredient> recipe = new ArrayList<RecipeIngredient>();
+
+        recipe.add(recipeFlour);
+        recipe.add(recipeSugar);
+        recipe.add(recipeMilk);
+
+        Ingredient apples = new Ingredient("Apples", 3);
+        Ingredient flour = new Ingredient("Flour", 300);
+        Ingredient sugar = new Ingredient("Sugar", 150);
+        Ingredient milk = new Ingredient("Milk", 100);
+        Ingredient oil = new Ingredient("Oil", 100);
+
+        List<Ingredient> cupboard = new ArrayList<Ingredient>();
+        cupboard.add(flour);
+        cupboard.add(sugar);
+        cupboard.add(apples);
+        cupboard.add(milk);
+        cupboard.add(oil);
+
+        int numberOfCakes = baker.getNumberOfCakes(recipe, cupboard);
+
+        assertEquals(0, numberOfCakes);
+
+    }
 
 
-
+// must return 0
+//  cakes({apples: 3, flour: 300, sugar: 150, milk: 100, oil: 100}, {sugar: 500, flour: 2000, milk: 2000});
 
 //    cakes({flour: 500, sugar: 200, eggs: 1}, {flour: 1200, sugar: 1200, eggs: 5, milk: 200});
 

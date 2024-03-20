@@ -7,7 +7,7 @@ public class Baker {
 
 
     public int getNumberOfCakes(List<RecipeIngredient> recipe, List<Ingredient> cupboard) {
-        int numberOfCakes = 0;
+        int numberOfCakes = Integer.MAX_VALUE;
 
 
         for (RecipeIngredient recipeIngredient : recipe) {
@@ -16,15 +16,14 @@ public class Baker {
             int totalNumberOfCakes = 0;
             var cupboardIngredient = cupboard.get(counter);
             do {
-                numberOfCakes = cupboardIngredient.countOfIngredient / recipeIngredient.countOfIngredient;
-                totalNumberOfCakes = totalNumberOfCakes + cupboardIngredient.countOfIngredient / recipeIngredient.countOfIngredient;
-                if (totalNumberOfCakes < numberOfCakes) {
-                    numberOfCakes = totalNumberOfCakes;
+                if (cupboardIngredient.ingredientType.equals(recipeIngredient.ingredientType)){
+                    totalNumberOfCakes = cupboardIngredient.countOfIngredient / recipeIngredient.countOfIngredient;
+                    if (totalNumberOfCakes <= numberOfCakes) {
+                        numberOfCakes = totalNumberOfCakes;
+                    }
                 }
                 counter++;
-            } while (counter < cupboard.size()) {
-
-                }
+            } while (counter < cupboard.size());
             }
 
 
